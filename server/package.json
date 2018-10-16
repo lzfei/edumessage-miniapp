@@ -1,0 +1,41 @@
+{
+  "name": "e-menu-node",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "cross-env NODE_ENV=development node ./bin/www"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "babel-register": "^6.24.0",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "config-lite": "^2.1.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "~1.4.3",
+    "cross-env": "^5.1.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.2",
+    "formidable": "^1.2.1",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "moment": "^2.22.2",
+    "mongodb": "^3.0.8",
+    "mongoose": "^5.0.17",
+    "morgan": "~1.9.0",
+    "qiniu": "^7.2.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0"
+  }
+}

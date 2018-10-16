@@ -1,0 +1,82 @@
+/**index.wxss**/
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.weui-media-box__hd_in-appmsg {
+  width: 70px;
+  height: 70px;
+}
+
+.search-map {
+  width: 16px;
+  height: 16px;
+  padding-right: 5px;
+  margin-top: 6px;
+}
+.position {
+  width: 14px;
+  height: 14px;
+  margin-top: 6px;
+}
+.placeholder {
+  display: flex;
+  line-height: 30px;
+}
+.weui-grid {
+  width: 25%;
+}
+.weui-grids {
+  border:none;
+}
+.weui-grid {
+  border:none;
+}
+.weui-btn_primary {
+  background-color:#28B8A1;
+}
+.quick-ask {
+  padding: 5px;
+}
+.quick-ask text {
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  font-size: 17px;
+}
+.quick-ask .t2 {
+  font-size: 14px;
+  line-height: 30px;
+}
+.quick-ask button {
+  margin-bottom: 20px;
+  background-color: #28B8A1;
+  color: #fff;
+}
+.quick-ask .count {
+  display: inline-block;
+  color: #ECA12B;
+}
+.weui-media-box_appmsg .weui-media-box__hd {
+  width: 100px;
+}
+.searchbar-result{
+  height:225px;
+  position:absolute;
+  width:100%;
+  z-index:10;
+
+}
+.weui-navbar {
+  border-bottom: none;
+}

@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>
+    <view class='ask-top'>
+      <view class="weui-cells__title">{{title}}</view>
+      <button type="default" size="mini" hover-class="other-button-hover" bindtap="publish" class='weui-btn_disabled'> 发表</button>
+    </view>
+    <view class="weui-cell__bd" style='padding: 15px'>
+      <textarea class="weui-textarea" placeholder="{{placeholder}}" style="height: 4.3em;" placeholder-style="color:#cecece;font-size:14px;" bindinput="bindKeyInput" auto-focus="true"/>
+    </view>
+    <view class="weui-cell__bd" style='padding: 15px' wx:if="{{category == 0}}">
+      <textarea class="weui-textarea" placeholder="{{placeholder2}}" style="height: 6.3em;" placeholder-style="color:#cecece;font-size:14px;" bindinput="bindKeyInput2"/>
+    </view>
+    <view class="weui-uploader__bd" style='padding: 15px'>
+      <view class="weui-uploader__files" id="uploaderFiles">
+        <block wx:for="{{files}}" wx:key="*this">
+          <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          </view>
+        </block>
+      </view>
+      <view class="weui-uploader__input-box">
+        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+      </view>
+    </view>
+  </view>
+</view>

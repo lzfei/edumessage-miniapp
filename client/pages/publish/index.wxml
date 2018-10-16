@@ -1,0 +1,96 @@
+<!--pages/publish/index.wxml-->
+<view class="page">
+  <!-- search -->
+  <view class="page__bd" style='border-bottom:none;height:49px;'>
+    <view class="weui-loadmore" wx:if="{{isShowRefresh}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-navbar">
+      <view class="weui-search-bar weui-flex__item">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+          </label>
+        </view>
+      </view>
+      <view class="weui-search-bar" bindtap="listenerButton">
+        <view class="placeholder" bindtap="quickAsk">
+          <image class="search-map" src="../../image/ask.png"></image>
+          <text>发布</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" style="height:200px;">
+    <navigator url="/pages/publish/ask/ask-detail?id={{item._id}}&category={{item.category}}" class="weui-cell" hover-class="weui-cell_active" wx:for="{{searchPublishList}}" wx:key="publishss">
+      <view class="weui-cell__bd">
+        <view>{{item.main}}</view>
+      </view>
+    </navigator>
+  </scroll-view>
+<!-- list -->
+<scroll-view class="page__bd" scroll-y="true" style="height:{{scrollHeight}}px;">
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{publishList.length === 0}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
+  <view class="page__bd" wx:for="{{publishList}}" wx:key="publish">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{item.avatar_url}}" style="width: 30px; height: 30px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view style="font-size: 13px;">{{item.user_name}}</view>
+        <view style="font-size: 11px;color: #888888;">{{item.user_des}}</view>
+      </view>
+    </view>
+    <view class="weui-panel__bd" wx:if="{{item.category == 0}}">
+      <navigator url="/pages/publish/ask/ask-detail?id={{item._id}}&category={{item.category}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.main}}</view>
+          <view class="weui-media-box__desc">{{item.des}}</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{item.date}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.answer_count}}回答</view>
+          </view>
+        </view>
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg class-room" wx:if="{{item.image_url.length != 0}}">
+          <image class="weui-media-box__thumb" src="{{'http://' +item.image_url[0] + '?imageView2/2/w/100/h/80/q/75|imageslim'}}" />
+        </view>
+      </navigator>
+    </view>
+    <view class="weui-panel__bd" wx:if="{{item.category == 1}}">
+      <navigator url="/pages/publish/ask/ask-detail?id={{item._id}}&category={{item.category}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.main}}</view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" wx:if="{{item.image_url.length != 0}}">
+              <block wx:for="{{item.image_url}}" wx:for-item="cell" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{'http://' + cell}}" data-list="{{item.image_url}}">
+                  <image class="weui-uploader__img" style="width:{{imageWidth}}px;height:{{imageWidth}}px" src="{{'http://' + cell}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+          </view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{item.date}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" bindtap="showComment">{{item.answer_count}}评论</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="weui-loadmore" wx:if="{{isShowLoadMore}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+</scroll-view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/my/mypublish/mypublish.wxss */
+.weui-media-box_appmsg .weui-media-box__hd{
+  width: 30%;
+  height:80px;
+}

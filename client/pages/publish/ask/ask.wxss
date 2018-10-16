@@ -1,0 +1,18 @@
+.weui-cells_after-title {
+  margin-top: 1em
+}
+.ask-top view{
+   display: inline-block;
+}
+.ask-top button{
+   display: inline-block;
+   position: absolute;
+   right: 15px;
+   top: 5px;
+   background-color: #28B8A1;
+   color: #fff;
+}
+textarea {
+  width: auto;
+  font-size: 15px;
+}

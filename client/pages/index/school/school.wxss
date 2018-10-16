@@ -1,0 +1,37 @@
+.weui-grid {
+  width: 25%;
+}
+.grid-quick text {
+  display: block;
+  line-height: 23px;
+  padding:14px 15px 10px;
+  color:#999;
+  font-size:13px;
+}
+.weui-grids {
+  border-left: none;
+}
+.school-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  border:1px solid #28B8A1;
+  border-radius:26px
+}
+.weui-cell_primary {
+  margin-left: 10px;
+}
+.weui-media-box__desc {
+  width: 200px;
+  white-space: nowrap;  
+  text-overflow:ellipsis; 
+  overflow:hidden;
+}
+.searchbar-result{
+  top:27px;
+  height:225px;
+  position:absolute;
+  width:100%;
+  z-index:10;
+
+}

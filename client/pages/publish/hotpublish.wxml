@@ -1,0 +1,31 @@
+<view class='page'>
+  <view class="page__bd">
+    <view class="weui-loadmore" wx:if="{{isShowRefresh}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-panel__hd">热门话题</view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{publishList.length === 0}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <view class="weui-panel__bd">
+      <navigator wx:for="{{publishList}}" wx:key="publish" url="/pages/publish/ask/ask-detail?id={{item._id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.main}}</view>
+          <view class="weui-media-box__desc">{{item.des}}</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{item.date}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.answer_count}}回答</view>
+          </view>
+        </view>
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg class-room" wx:if="{{item.image_url.length != 0}}">
+          <image class="weui-media-box__thumb" src="{{'http://' +item.image_url[0] + '?imageView2/2/w/100/h/80/q/75|imageslim'}}" />
+        </view>
+      </navigator>
+    </view>
+    <view class="weui-loadmore" wx:if="{{isShowLoadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </view>
+</view>

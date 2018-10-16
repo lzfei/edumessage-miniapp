@@ -1,0 +1,51 @@
+.publish-answer {
+  font-size: 14px;
+  padding: 5px 20px;
+}
+.answer-title view{
+  display: inline-block;
+  font-size: 15px;
+  padding: 0 15px;
+}
+.answer-btn {
+  float: right;
+  font-size: 14px;
+  color: #28B8A1;
+  margin-top: 5px;
+}
+.concern-btn {
+  height:28px;
+  margin-top:12px;
+  right:15px;
+  background-color: #28B8A1!important;
+  color: #fff!important;
+}
+.weui-loading {
+  margin: 0px;
+}
+.answer-textarea {
+  font-size: 14px;
+  height: 6.3em;
+  border:1px solid #eee
+}
+.weui-media-detail__desc {
+  color:#999;
+  font-size:13px;
+  line-height:1.2;
+
+}
+.weui-media-detail__title {
+  font-weight:400;
+  font-size:17px;
+  width:auto;
+}
+.menu-main {
+  position:fixed;
+  z-index:8;
+  right:15px;
+  bottom:15px;
+}
+.menu-main image {
+  width: 40px;
+  height: 40px;
+}

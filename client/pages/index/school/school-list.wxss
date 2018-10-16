@@ -1,0 +1,43 @@
+.weui-media-box__hd_in-appmsg {
+  width: 87px;
+  height: 92px;
+}
+.list-title view {
+  display: inline-block;
+}
+.list-title .weui-cell__ft{
+  position: absolute;
+  margin-top: 10px;
+  right: 15px;
+}
+.weui-media-box__desc {
+  font-size: 12px;
+  color: #AFAFAF;
+}
+.star {
+  width: 10px;
+  height: 10px;
+}
+.score {
+  padding-left: 5px;
+  color: #FF9800;
+  font-size: 12px;
+}
+.school-age {
+  padding-left: 15px;
+  color: #AFAFAF;
+  font-size: 12px;
+}
+.school-age text {
+  color: #FF9800;
+}
+.nameplate text {
+  display: inline-block;
+  padding: 1px 3px;
+  font-size: 11px;
+  margin-right: 5px;
+  border: 1px solid #28B8A1;
+  border-radius: 15px;
+  color: #28B8A1;
+  text-align: center;
+}

@@ -1,0 +1,79 @@
+<view class='page'>
+  <!-- carousel -->
+  <view class="page__bd">
+    <swiper class="swiper" indicator-dots="true" autoplay="false" indicator-color="#fff" indicator-active-color="#28B8A1">
+      <block wx:for="{{carousel}}" wx:for-index="index" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- base -->
+  <view class="page__bd">
+    <view class='school-base'>
+      <view class='base-info'>
+        <text>{{schoolInfo.age}}</text>年办学年限</view>
+      <view class='base-info'>
+        <text>{{schoolDetail.total}}</text>人次培育</view>
+      <view class='base-score'>
+        <text class='score'>{{schoolInfo.score}}</text>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+      </view>
+    </view>
+    <view>
+      <view class='ident-block'>
+        <view class='ident'>
+          <image src='../../../image/school/ident.png'></image>
+          <text>{{schoolInfo.tag1}}</text>
+        </view>
+      </view>
+      <view class='ident-block'>
+        <view class='ident'>
+          <image src='../../../image/school/ident.png'></image>
+          <text>{{schoolInfo.tag2}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- good at -->
+  <view class="page__bd" style='margin-top:10px'>
+    <view class="weui-panel__hd">擅长科目</view>
+    <view class="weui-panel__bd good-at">
+      <text wx:for="{{schoolDetail.items}}" wx:for-index="good" wx:key="good">{{item.value}}</text>
+    </view>
+    <view class="weui-panel__hd">机构简介</view>
+    <view class="weui-article__p">
+      {{schoolDetail.desc}}
+    </view>
+    <view class="weui-panel__hd">联系方式</view>
+    <view class="weui-panel__bd">
+      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="../../../image/school/position.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <view class="weui-cell__bd desc-row">{{schoolDetail.position}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+      <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="../../../image/school/time.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <view class="weui-cell__bd desc-row">周一至周末（9:00 - 18:00）</view>
+      </view>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='makePhoneCall'>
+        <view class="weui-cell__hd">
+          <image src="../../../image/school/phone.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <view class="weui-cell__bd desc-row">{{schoolDetail.phone}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+  </view>
+</view>

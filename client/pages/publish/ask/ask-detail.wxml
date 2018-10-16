@@ -1,0 +1,81 @@
+<!--pages/publish/ask/ask-detail.wxml-->
+<view class="page">
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>
+  <view class='menu-main' bindtap="goHome">
+    <image src='../../../image/back-home.png'></image>
+  </view>
+  <view class="page__bd" style='border-bottom:none;display:flex;'>
+    <view class="weui-cell" style='flex:2'>
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{publishDetail.avatar_url}}" style="width: 30px; height: 30px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view style="font-size: 13px;">{{publishDetail.user_name}}</view>
+        <view style="font-size: 11px;color: #888888;">{{publishDetail.user_des}}</view>
+      </view>
+    </view>
+    <button type="default" size="mini" class="concern-btn" bindtap="doConcern" data-openid='{{publishDetail.openid}}' wx:if="{{!isMine}}">
+      <i class="weui-loading" wx:if="{{isShow}}"></i>
+      {{concernText}}</button>
+  </view>
+  <scroll-view class="page__bd" scroll-y="true" style="height:{{scrollHeight}}px;">
+    <view class="page__bd">
+      <view class="weui-panel__bd" style='padding:15px'>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-detail__title">{{publishDetail.main}}</view>
+          <view class="weui-media-detail__desc">{{publishDetail.des}}</view>
+          <view class="weui-uploader__bd" style='margin-top:10px'>
+            <view class="weui-uploader__files" wx:if="{{publishDetail.image_url.length != 0}}">
+              <block wx:for="{{publishDetail.image_url}}" wx:for-item="cell" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{'http://' + cell}}" data-list="{{publishDetail.image_url}}">
+                  <image class="weui-uploader__img" style="width:{{imageWidth}}px;height:{{imageWidth}}px" src="{{'http://' + cell}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+          </view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{publishDetail.date}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{answerCount}}{{hotCategory}}</view>
+            <view class="weui-media-box__info__meta" wx:if="{{isMine}}" style='color: #28B8A1;' data-_id='{{publishDetail._id}}' bindtap="deletePublish">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='answer-title'>
+      <view>热门{{hotCategory}}</view>
+      <view class='answer-btn' bindtap="doAnswer" wx:if="{{!isAnswer}}">我要{{hotCategory}}</view>
+      <view class='answer-btn' bindtap="publishAnswer" wx:if="{{isAnswer}}">发布</view>
+      <view class='answer-btn' bindtap="cancelAnswer" wx:if="{{isAnswer}}">取消</view>
+    </view>
+    <view class="weui-loadmore" wx:if="{{isShowRefresh}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-cell__bd" style='padding: 15px' wx:if="{{isAnswer}}">
+      <textarea class="weui-textarea answer-textarea" placeholder="您的回答..." style="" placeholder-style="color:#cecece;font-size:14px;" bindinput="bindKeyInput" />
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{answerList.length === 0}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无{{hotCategory}}</view>
+    </view>
+    <!--回答-->
+    <view class="page__bd" wx:for="{{answerList}}" wx:key="id">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{item.avatar_url}}" style="width: 30px; height: 30px; display: block" />
+        </view>
+        <view class="weui-cell__bd">
+          <view style="font-size: 13px;">{{item.user_name}}</view>
+          <view style="font-size: 11px;color: #888888;">{{item.user_des}}</view>
+        </view>
+      </view>
+      <view class="weui-cell__bd publish-answer">
+        {{item.des}}
+      </view>
+    </view>
+
+    <view class="weui-loadmore" wx:if="{{isShowLoadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </scroll-view>
+</view>

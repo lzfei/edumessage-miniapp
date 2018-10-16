@@ -1,0 +1,17 @@
+.cell-inline {
+  text-align: center;
+}
+
+.aboutus-logo {
+  text-align: center;
+  padding: 25px;
+}
+
+.weui-btn_plain-default {
+  width: 60%;
+  background-color: #28B8A1;
+  color: #fff;
+}
+.desc-row {
+  font-size: 16px;
+}

@@ -1,0 +1,86 @@
+<view class='page'>
+  <!-- carousel -->
+  <view class="page__bd">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{teacherInfo.picture}}" style="width: 50px; height: 50px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view>{{teacherInfo.name}}</view>
+        <view style="font-size: 13px;color: #888888;">西安外国语大学英语系</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- base -->
+  <view class="page__bd">
+    <view class='school-base'>
+      <view class='base-info'>
+        <text>{{teacherInfo.age}}</text>年教学经验</view>
+      <view class='base-info'>
+        <text>{{teacherDetail.total}}</text>人次培育</view>
+      <view class='base-score'>
+        <text class='score'>4.8</text>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+        <image src='../../../image/school/star.png' class='star'></image>
+      </view>
+    </view>
+    <view>
+      <view class='ident-block'>
+        <view class='ident'>
+          <image src='../../../image/school/ident.png'></image>
+          <text>{{teacherInfo.tag1}}</text>
+        </view>
+      </view>
+      <view class='ident-block'>
+        <view class='ident'>
+          <image src='../../../image/school/ident.png'></image>
+          <text>{{teacherInfo.tag2}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- good at -->
+  <view class="page__bd" style='margin-top:10px'>
+    <view class="weui-panel__hd">擅长科目</view>
+    <view class="weui-panel__bd good-at">
+      <text wx:for="{{teacherDetail.items}}" wx:for-index="good" wx:key="good">{{item.value}}</text>
+    </view>
+    <view class="weui-panel__hd">老师简介</view>
+    <view class="weui-article__p">
+      {{teacherDetail.desc}}
+    </view>
+  </view>
+
+  <!-- info -->
+  <view class="page__bd" style='margin-top:10px'>
+    <view class="weui-panel__hd">联系方式</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='makePhoneCall'>
+            <view class="weui-cell__hd">
+              <image src="../../../image/school/phone.png" style="width: 20px;height: 20px;margin-right: 5px" />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>{{teacherDetail.phone}}</view>
+            </view>
+          </view>
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="../../../image/teacher/company.png" style="width: 20px;height: 20px;margin-right: 5px" />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>{{teacherDetail.position}}</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
