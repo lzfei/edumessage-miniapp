@@ -1,2 +1,0 @@
-client文件下为小程序代码
-service为服务代码
